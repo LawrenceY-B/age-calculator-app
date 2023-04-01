@@ -33,11 +33,14 @@
                 width: 65%;
                 border: 1px solid #ccc;
                 border-radius: 5px;
+                font-family: 'Poppins EBoldItalic';
+                color: #000;
             }
 
             
 
             input[type=number]:focus {
+
                 outline: 1px solid #a93fff;
             }
 
@@ -49,11 +52,12 @@
 
             ::placeholder {
                 text-align: left;
-                font-family: 'Poppins Bold';
+                font-family: 'Poppins EBoldItalic';
                 color: #ccc;
                 text-transform: uppercase;
 
             }
+           
 
             div {
                 display: flex;
