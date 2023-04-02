@@ -111,6 +111,9 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+        input[type=submit]:hover {
+            background-color: #000;
+        }
 
         .bottombar {
             display: flex;
