@@ -3,29 +3,44 @@
     <div>
       <form class="topbar" [formGroup]="dateForm">
         <div>
-          <label for="day">Day</label>
-          <input type="number" name="Day" id="day" placeholder="dd"  formControlName="day" >
-          <small class="text-danger" *ngIf="dateForm.get('day')?.errors?.['required']">This Field is required</small>
-          <small class="text-danger" *ngIf="dateForm.get('day')?.errors?.['max']">Must be a valid day</small>
+          <label for="day" [class.error]="dateForm.get('day')?.invalid && dateForm.get('day')?.touched">Day</label>
+          <input type="number" name="Day" id="day" placeholder="dd" formControlName="day"
+            [class.ng-invalid]="dateForm.get('day')?.invalid && dateForm.get('day')?.touched" [(ngModel)]="dd">
+          <div *ngIf="dateForm.get('day')?.invalid && dateForm.get('day')?.touched">
+            <small class="text-danger" *ngIf="dateForm.get('day')?.errors?.['required']">This Field is required</small>
+            <small class="text-danger" *ngIf="dateForm.get('day')?.errors?.['max']">Must be a valid day</small>
+          </div>
         </div>
         <div>
-          <label for="mm">Month</label>
-          <input type="number" name="Month" id="mm" placeholder="mm" formControlName="month" [(ngModel)]="mm">
-          <small class="text-danger" *ngIf="dateForm.get('month')?.errors?.['required']">This Field is required</small>
-          <small class="text-danger" *ngIf="dateForm.get('month')?.errors?.['max']">Must be a valid month</small>
+          <label for="mm" [class.error]="dateForm.get('month')?.invalid && dateForm.get('month')?.touched">Month</label>
+          <input type="number" name="Month" id="mm" placeholder="mm" formControlName="month" [(ngModel)]="mm"
+            [class.ng-invalid]="dateForm.get('month')?.invalid && dateForm.get('month')?.touched">
+          <div *ngIf="dateForm.get('month')?.invalid && dateForm.get('month')?.touched">
+            <small class="text-danger" *ngIf="dateForm.get('month')?.errors?.['required']">This Field is
+              required</small>
+            <small class="text-danger" *ngIf="dateForm.get('month')?.errors?.['max']">Must be a valid month</small>
+          </div>
+
         </div>
         <div>
-          <label for="year">Year</label>
-          <input type="number" name="Year" id="year" placeholder="yyyy" formControlName="year" [(ngModel)]="yy">
-          <small class="text-danger" *ngIf="dateForm.get('year')?.errors?.['required']">This Field is required</small>
-          <small class="text-danger" *ngIf="dateForm.get('year')?.errors?.['max']">Must be a valid year</small>
+          <label for="year" [class.error]="dateForm.get('year')?.invalid && dateForm.get('year')?.touched">Year</label>
+          <input type="number" name="Year" id="year" placeholder="yyyy" formControlName="year" [(ngModel)]="yy"
+            [class.ng-invalid]="dateForm.get('year')?.invalid && dateForm.get('year')?.touched">
+          <div *ngIf="dateForm.get('year')?.invalid && dateForm.get('year')?.touched">
+            <small class="text-danger" *ngIf="dateForm.get('year')?.errors?.['required']">This Field is required</small>
+            <small class="text-danger" *ngIf="dateForm.get('year')?.errors?.['max']">Must be a valid year</small>
+          </div>
         </div>
 
-        <input type="submit" value="" (click)="onsubmit()" > 
+
 
       </form>
     </div>
-    <hr style="width: 93%; border: 1px solid #ccc; position: relative;" >
+    <div class="line">
+      <hr style="width: 100%; border: 1px solid #ccc; position: relative;"><input type="submit" value=""
+        (click)="onsubmit()">
+    </div>
+
     <div class="bottombar">
 
       <h3><span>{{years}}</span> years</h3>
